@@ -31,7 +31,7 @@ data_root/speakerid/\
   | - 00001.wav\
   | - 00001.txt\
   | - 00001_vtp.np\
-  | - 00001.npz\
+  | - 00001.npz
 
 
 ## Training

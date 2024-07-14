@@ -35,5 +35,5 @@
         "world_size": 1
     },
 
-    "result_path": "/scratch/sindhu/vocoder_hifigan/results/"
+    "result_path": "/ssd_scratch/cvit/souvik/vocoder_hifigan/results/"
 }

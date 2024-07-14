@@ -42,7 +42,7 @@ def _get_all_files(split):
 
     
     # LRS2 train files
-    filelist_lrs2 = _get_files_lrs2(split, '/ssd_scratch/cvit/sindhu/lrs2_mp4/')
+    filelist_lrs2 = _get_files_lrs2(split, '/ssd_scratch/cvit/souvik/mvlrs_v1/pretrain/')
     print("LRS2: ", len(filelist_lrs2))
 
     # LRS3 train files

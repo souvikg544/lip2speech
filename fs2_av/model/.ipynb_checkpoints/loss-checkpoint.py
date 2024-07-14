@@ -200,7 +200,7 @@ class FastSpeech2LossAll(nn.Module):
 
     def forward(self, inputs, predictions):
         (mel_targets, _, _, _,) = inputs[9:]
-        (mel_predictions, postnet_mel_predictions, src_masks, mel_masks, _, _,) = predictions
+        (mel_predictions, postnet_mel_predictions, src_masks, mel_masks, _, _,_) = predictions
         src_masks = ~src_masks
         mel_masks = ~mel_masks
 

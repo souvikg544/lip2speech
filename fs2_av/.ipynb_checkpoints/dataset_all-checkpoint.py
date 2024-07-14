@@ -70,14 +70,16 @@ class Dataset(Dataset):
             try:
                 se_path = video_file.replace(".mp4", ".npz")
                 speaker_emb = np.load(se_path)['ref'][0]
-            except:
+            except Exception as e:
+                print(e)
                 continue
             # print("Speaker emb: ", speaker_emb.shape)
 
             try:
                 phoneme_file = video_file.replace(".mp4", "_phonemes.npy")
                 phone = np.load(phoneme_file)            
-            except:
+            except Exception as e:
+                print(e)
                 continue
 
             phoneme_file = video_file.replace(".mp4", "_phonemes.npy")

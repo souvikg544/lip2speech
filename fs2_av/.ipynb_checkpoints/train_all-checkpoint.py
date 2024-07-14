@@ -1,13 +1,11 @@
 import argparse
 import os
-
 import torch
 import yaml
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
-
 from utils.model import get_model_all, get_vocoder, get_param_num
 from utils.tools import *
 from model import FastSpeech2LossAll
@@ -82,11 +80,12 @@ def main(args, configs):
                 batch = to_device(batch, device, train=True)
 
                 # Forward
-                try:
-                    output = model(*(batch))
-                except:
-                    continue
-                # output = model(*(batch))
+                # try:
+                #     output = model(*(batch))
+                # except:
+                #     continue
+                output = model(*(batch))
+                print(len(output))
 
                 # Cal Loss
                 losses = Loss(batch, output)

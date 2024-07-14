@@ -74,6 +74,7 @@ def get_model_all(args, configs, device, train=False):
         )
         ckpt = torch.load(ckpt_path)
         model.load_state_dict(ckpt["model"])
+        print("Model succesfully loaded")
 
     if train:
         scheduled_optim = ScheduledOptim(
@@ -134,15 +135,16 @@ def get_vocoder(config, device):
         vocoder.mel2wav.eval()
         vocoder.mel2wav.to(device)
     elif name == "HiFi-GAN":
-        with open("hifigan/config_v1.json", "r") as f:
+        with open("hifigan/config.json", "r") as f:
             config = json.load(f)
+	
         config = hifigan.AttrDict(config)
         vocoder = hifigan.Generator(config)
         if speaker == "LJSpeech":
             ckpt = torch.load("hifigan/generator_LJSpeech.pth.tar")
         elif speaker == "universal":
-            # ckpt = torch.load("hifigan/generator_universal.pth.tar")
-            ckpt = torch.load("/scratch/sindhu/vocoder_hifigan/g_00400000")
+            ckpt = torch.load("hifigan/generator_universal.pth.tar")
+            #ckpt = torch.load("/ssd_scratch/cvit/souvik/g_00400000")
         vocoder.load_state_dict(ckpt["generator"])
         vocoder.eval()
         vocoder.remove_weight_norm()

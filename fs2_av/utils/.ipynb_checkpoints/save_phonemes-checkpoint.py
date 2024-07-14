@@ -24,25 +24,16 @@ def save_phonemes(text_files, preprocess_config):
 		phoneme_fname = file.replace(".txt", "_phonemes.npy")
 		if os.path.exists(phoneme_fname):
 			continue
-
 		try:
 			with open(file) as f:
 				raw_texts = f.read().splitlines()
 			raw_texts = raw_texts[0].split(":  ")[1]
 		except:
-			continue
-
+			continue   
 		phonemes = preprocess_english(raw_texts, preprocess_config)
-
-		# print("Phoneme: ", phonemes)
-
-		# print("Phoneme file: ", phoneme_fname)
-
-		# with open(phoneme_fname,"w") as f1:
-		# 	f1.write(phonemes)
-
+		print(phonemes,phoneme_fname)
 		np.save(phoneme_fname, phonemes)
-
+        
 def read_lexicon(lex_path):
 	lexicon = {}
 	with open(lex_path) as f:

@@ -13,7 +13,7 @@ python preprocess_speakers_mp4.py --final_data_root path/to/your/dataset
 2. Phonemes Generation
 ```
 cd fs2_av/utils/
-python save_phonemes.py --data_path path/to/your/videofolder --preprocess_config fs2_av/config/LRS_train/preprocess.yaml
+python save_phonemes.py --data_path /ssd_scratch/cvit/souvik/mvlrs_v1/pretrain/ --preprocess_config /home2/souvikg544/souvik/lip2speech/fs2_av/config/LRS_train/preprocess.yaml
 
 ```
 
@@ -36,7 +36,8 @@ data_root/<speakerid>/
 
 ## Training
 ```
-python train_all.py --preprocess_config fs2_av/config/LRS_train/preprocess.yaml --model_config fs2_av/config/LRS_train/model.yaml --train_config fs2_av/config/LRS_train/train.yaml
+cd fs2_av
+python train_all.py --preprocess_config config/LRS_train/preprocess.yaml --model_config config/LRS_train/model.yaml --train_config config/LRS_train/train.yaml
 
 ```
 

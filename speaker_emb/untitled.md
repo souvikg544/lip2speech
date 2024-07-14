@@ -1,1 +1,1 @@
-python preprocess_speakers_mp4.py
+python preprocess_speakers_mp4.py --final_data_root /ssd_scratch/cvit/souvik/mvlrs_v1/pretrain

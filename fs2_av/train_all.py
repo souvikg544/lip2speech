@@ -80,11 +80,12 @@ def main(args, configs):
                 batch = to_device(batch, device, train=True)
 
                 # Forward
-                try:
-                    output = model(*(batch))
-                except:
-                    continue
-                # output = model(*(batch))
+                # try:
+                #     output = model(*(batch))
+                # except:
+                #     continue
+                output = model(*(batch))
+                print(len(output))
 
                 # Cal Loss
                 losses = Loss(batch, output)

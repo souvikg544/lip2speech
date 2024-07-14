@@ -3,12 +3,13 @@ import torch, os
 import torch.nn as nn
 import torch.nn.functional as F
 from tqdm import tqdm
-
-from config import load_args
+#print("reached")
+from config1 import load_args
 from models import builders
 
-from dataloader import AugmentationPipeline, VideoDataset
-from utils import load
+from dataloader1 import AugmentationPipeline, VideoDataset
+import utils1 as utils
+# from .utils import load as load
 
 from glob import glob
 
@@ -57,7 +58,9 @@ def save_feat(vidpath, featpath, model, data_util):
 
 			np.save(featpath, out.cpu().numpy().astype(np.float16))
 			print("Extracted VTP embeddings: ", out.cpu().numpy().shape)
-			# exit(0)
+			exit(0)
+
+	return out.cpu().numpy()
 
 
 def main(args):
@@ -65,7 +68,7 @@ def main(args):
 	model, data_util = init(args)
 	if args.ckpt_path is not None:
 		# print('Resuming from: {}'.format(args.ckpt_path))
-		model = load(model, args.ckpt_path)[0]
+		model = utils.load(model, args.ckpt_path)[0]
 	else:
 		raise SystemError('Need a checkpoint to dump feats')
 
@@ -73,15 +76,16 @@ def main(args):
 	save_feat(args.videos_root, args.feats_root, model, data_util)
 
 
-def save_visual_emb(vidpath, featpath, ckpt_path=None):
-	
-	args = load_args()
+def save_visual_emb(vidpath, featpath, ckpt_path,parser=True):
+	print("Here too")
+	args = load_args(parser)
+	print(args)
 	augmentor = AugmentationPipeline(args)
 
 	args.device = 'cuda'
 	model, data_util = init(args)
 	if ckpt_path is not None:
-		model = load(model, ckpt_path)[0]
+		model = utils.load(model, ckpt_path)[0]
 	else:
 		raise SystemError('Need a checkpoint to dump feats')
 
@@ -110,8 +114,9 @@ def save_visual_emb(vidpath, featpath, ckpt_path=None):
 
 			out = torch.cat(outs, dim=0)
 
-			np.save(featpath, out.cpu().numpy().astype(np.float16))
-			print("Extracted VTP embeddings: ", out.cpu().numpy().shape)
+			# np.save(featpath, out.cpu().numpy().astype(np.float16))
+			# print("Extracted VTP embeddings: ", out.cpu().numpy().shape)
+		return out.cpu().numpy()
 
 if __name__ == '__main__':
 	args = load_args()

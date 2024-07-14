@@ -1,0 +1,29 @@
+device: cuda
+builder: vtp24x24
+ckpt_path: null
+fp16: true
+
+# Data
+feat_dim: 512
+videos_root:
+feats_root:
+
+# Transformer config
+num_blocks: 6
+hidden_units: 512
+num_heads: 8
+dropout_rate: 0.1
+
+# Preprocessing
+img_size: 96
+frame_size: 160
+normalize: true
+
+# Data aug params
+rot: 10.0
+rand_crop: 3
+
+# Feature extraction config
+file_list:
+num_parts: 1
+part: 0

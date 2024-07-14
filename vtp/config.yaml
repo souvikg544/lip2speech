@@ -1,0 +1,41 @@
+device: cuda
+builder: vtp24x24
+ckpt_path: /ssd_scratch/cvit/souvik/ft_lrs2.pth
+cnn_ckpt_path: /ssd_scratch/cvit/souvik/feature_extractor.pth
+fp16: true
+
+# Data
+feat_dim: 512
+videos_root:
+feats_root:
+test_pkl_file:
+
+# Transformer config
+num_blocks: 6
+hidden_units: 512
+num_heads: 8
+dropout_rate: 0.1
+
+# Preprocessing
+img_size: 96
+frame_size: 160
+normalize: true
+
+# Data aug params
+rot: 10.0
+rand_crop: 3
+
+# Feature extraction config
+file_list:
+num_parts: 1
+part: 0
+
+# Inference params
+fpath:
+max_decode_len: 35
+chunk_size: 100
+ss:
+es:
+beam_size: 30
+beam_len_alpha: 1
+lm_alpha: 0.0

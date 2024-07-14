@@ -1,10 +1,10 @@
 dataset: "LRS"
 
 path:
-  corpus_path: "/ssd_scratch/cvit/sindhu/lrs2_mp4"
-  lexicon_path: "/ssd_scratch/cvit/sindhu/MFA/pretrained_models/dictionary/english_us_arpa.dict"
-  raw_path: "/ssd_scratch/cvit/sindhu/fs2/raw_data/lrs2"
-  preprocessed_path: "/ssd_scratch/cvit/sindhu/MFA/lrs2_aligned"
+  corpus_path: "/ssd_scratch/cvit/souvik/mvlrs_v1/pretrain/"
+  lexicon_path: "/ssd_scratch/cvit/souvik/L2T-TTS-ALL_CODES/ssd_scratch/cvit/sindhu/MFA/pretrained_models/dictionary/english_us_arpa.dict"
+  raw_path: "/ssd_scratch/cvit/souvik/mvlrs_v1/pretrain/"
+  preprocessed_path: "/ssd_scratch/cvit/souvik/mvlrs_v1/pretrain/"
 
 preprocessing:
   img_size: 160

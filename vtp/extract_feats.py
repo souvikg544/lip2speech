@@ -75,15 +75,17 @@ def main(args):
 	else:
 		raise SystemError('Need a checkpoint to dump feats')
 
-	vidpaths = sorted(list(glob('{}/{}'.format(args.videos_root, args.file_list))))
-
+	vidpaths = sorted(list(glob('{}/{}'.format(args.videos_root, "*/*.mp4"))))
+	print('{}/{}'.format(args.videos_root, args.file_list),args.videos_root,args.file_list)
 	print('################# INFO ####################')
 	# print('Will be dumping to: {}'.format(args.feats_root))
 	print('Found {} videos'.format(len(vidpaths)))
 	# input('Press Enter to continue. Or Press Ctrl + C to abort')
 
 	#featpaths = [f.replace(args.videos_root, args.feats_root)[:-4] + '_vtp.npy' for f in vidpaths]
-    featpaths = [f.replace('.mp4','_vtp.npy') for f in vidpaths]
+	featpaths = [f.replace('.mp4','_vtp.npy') for f in vidpaths]
+
+    
 	# print("All fpath: ", featpaths)
 	# exit(0)
 	all_folders = np.unique([os.path.dirname(f) for f in featpaths])
@@ -97,7 +99,7 @@ def main(args):
 	part = args.part
 	num_parts = args.num_parts
 	part_size = len(vidpaths) // num_parts
-	input('Doing for part {}, press Enter to continue.'.format(part))
+	# input('Doing for part {}, press Enter to continue.'.format(part))
 	cur_vid_paths = vidpaths[part * part_size :] if part == num_parts - 1 else \
 				vidpaths[part * part_size : (part + 1) * part_size]
 	cur_feat_paths = featpaths[part * part_size :] if part == num_parts - 1 else \

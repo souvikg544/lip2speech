@@ -1,7 +1,10 @@
 path:
-  ckpt_path: "/scratch/sindhu/fs_av_lrs2_librosa_face"
-  log_path: "/scratch/sindhu/fs_av_lrs2_librosa_face/log"
-  result_path: "/scratch/sindhu/fs_av_lrs2_librosa_face/results/"
+  # ckpt_path: "/scratch/sindhu/fs_av_lrs2_librosa_face"
+  # log_path: "/scratch/sindhu/fs_av_lrs2_librosa_face/log"
+  # result_path: "/scratch/sindhu/fs_av_lrs2_librosa_face/results/"
+  ckpt_path: "/ssd_scratch/cvit/souvik/fs_av_all_librosa"
+  log_path: "/ssd_scratch/cvit/souvik/fs_av_all_librosa/log"
+  result_path: "/ssd_scratch/cvit/souvik/fs_av_all_librosa/results/"
 optimizer:
   batch_size: 8
   betas: [0.9, 0.98]

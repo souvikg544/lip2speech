@@ -246,7 +246,7 @@ class FastSpeech2Mel(nn.Module):
         output = self.mel_linear(output)
 
         postnet_output = self.postnet(output) + output
-
+        print("Here")
         return (
             output,
             postnet_output,

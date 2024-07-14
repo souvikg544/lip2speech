@@ -25,13 +25,13 @@ python extract_feats.py --builder vtp24x24 --ckpt_path <path_to_a_feat_extractor
 
 ```
 
-The resulting dataset should look like :
-data_root/<speakerid>/
-| - 00001.mp4
-| - 00001.wav
-| - 00001.txt
-| - 00001_vtp.np
-| - 00001.npz
+The resulting dataset should look like :\
+data_root/speakerid/\
+  | - 00001.mp4\
+  | - 00001.wav\
+  | - 00001.txt\
+  | - 00001_vtp.np\
+  | - 00001.npz
 
 
 ## Training
